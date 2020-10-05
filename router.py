@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 import flask
+from http import HTTPStatus
 from CalculateService import CalculateService
 
 app = flask.Flask (__name__)
@@ -11,7 +13,15 @@ def hello_wold():
 @app.route('/getScale/<key>')
 def get_scale(key):
     cs = CalculateService()
-    return flask.jsonify(cs.get_scale(key))
+
+    response = None
+    result = cs.get_scale(key)
+
+    if result != False:
+        response = flask.make_response(flask.jsonify(result), HTTPStatus.OK)
+    else:
+        response = flask.make_response(flask.jsonify(result), HTTPStatus.BAD_REQUEST)
+    return response
 
 if __name__ == "__main__":
     app.run()
