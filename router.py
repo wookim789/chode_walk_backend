@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import flask
 from http import HTTPStatus
-from CalculateService import CalculateService
+import CalculateService
 
 app = flask.Flask (__name__)
 
@@ -12,7 +12,7 @@ def hello_wold():
 
 @app.route('/getScale/<key>')
 def get_scale(key):
-    cs = CalculateService()
+    cs = CalculateService.CalculateService()
 
     response = None
     result = cs.get_scale(key)

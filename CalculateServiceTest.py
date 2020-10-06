@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-import CalculateService 
+import CalculateService
 
 class CalcuateServiceTest(unittest.TestCase):
     def setUp(self):
@@ -27,6 +27,22 @@ class CalcuateServiceTest(unittest.TestCase):
         answer['f'] = ['f', 'g', 'a', 'b-', 'c', 'd', 'e']  
         answer['g'] = ['g', 'a', 'b', 'c', 'd', 'e', 'f+']
 
+        answer['A+'] = ['a+', 'b+', 'c++', 'd+', 'e+', 'f++', 'g++']  
+        answer['B+'] = ['b+', 'c++', 'd++', 'e+', 'f++', 'g++', 'a++']  
+        answer['C+'] = ['c+', 'd+', 'e+', 'f+', 'g+', 'a+', 'b+']
+        answer['D+'] = ['d+', 'e+', 'f++', 'g+', 'a+', 'b+', 'c++']  
+        answer['E+'] = ['e+', 'f++', 'g++', 'a+', 'b+', 'c++', 'd++']  
+        answer['F+'] = ['f+', 'g+', 'a+', 'b', 'c+', 'd+', 'e+']  
+        answer['G+'] = ['g+', 'a+', 'b+', 'c+', 'd+', 'e+', 'f++']
+
+        answer['a+'] = ['a+', 'b+', 'c++', 'd+', 'e+', 'f++', 'g++']  
+        answer['b+'] = ['b+', 'c++', 'd++', 'e+', 'f++', 'g++', 'a++']
+        answer['c+'] = ['c+', 'd+', 'e+', 'f+', 'g+', 'a+', 'b+']
+        answer['d+'] = ['d+', 'e+', 'f++', 'g+', 'a+', 'b+', 'c++']  
+        answer['e+'] = ['e+', 'f++', 'g++', 'a+', 'b+', 'c++', 'd++']  
+        answer['f+'] = ['f+', 'g+', 'a+', 'b', 'c+', 'd+', 'e+']  
+        answer['g+'] = ['g+', 'a+', 'b+', 'c+', 'd+', 'e+', 'f++']
+        
         for i in range(40, 128):
             test_key_list.append(chr(i))
 
