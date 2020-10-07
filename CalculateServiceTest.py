@@ -45,7 +45,8 @@ class CalcuateServiceTest(unittest.TestCase):
         
         for i in range(40, 128):
             test_key_list.append(chr(i))
-
+        test_key_list.append('yasdas')
+        
         result = []
         for key in test_key_list:
             result.append(self.service.get_scale(key))

@@ -7,9 +7,9 @@ class CalculateService:
         try:
             # 입력 받은 key 유효성 검사
             key = self.check_key_validation(key)
-
-            sclae = self.calculate_interval(self.get_temp_scale(key))
-            result = sclae
+            scale = self.calculate_interval(self.get_temp_scale(key))
+            code = self.get_diatonic_code(scale)
+            result = {'scale' : scale, 'code' : code}
         except Exception as e:
             print(e)
             result = False
@@ -17,9 +17,9 @@ class CalculateService:
         return result
 
     def check_key_validation(self, key):
-        key_str_list = list(key.lower())
+        key_str_list = list(key.upper())
         # A~G, a ~ g, +, - 아스키 코드
-        asck_list = [43, 45, 97, 98, 99, 100, 101, 102, 103]
+        asck_list = [43, 45, 65, 66, 67, 68, 69, 70, 71]
 
         # key는 a ~ g 까지 알파벳과 +, -로 구성
         if len(key_str_list) > 2:
@@ -34,10 +34,11 @@ class CalculateService:
             if idx == 0 and (ord(s) == 43 or ord(s) == 45):
                 raise Exception('Key order error')
             idx += 1
-        return key.lower()
+        return key.upper()
+
     # key를 기준으로 임시적인 음계 나열
     def get_temp_scale(self, key):
-        scale = ['c', 'd', 'e', 'f', 'g', 'a', 'b']
+        scale = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
         key_idx = scale.index(key[0])
 
         cnt = 0
@@ -57,10 +58,11 @@ class CalculateService:
                 key_idx = 0
         result[0] = key
         return result
+
     # 임시로 나열한 스케일에 정확한 음정 계산
     def calculate_interval(self, scale):
-        interval = {'c' : 1.0, 'c+': 1.5, 'd' : 2.0, 'd+':2.5, 'e' : 3.0, 'e+' : 3.5, 'f' : 3.5
-                 , 'f+' : 4.0, 'g' : 4.5, 'g+' : 5.0, 'a' : 5.5, 'a+': 6.0, 'b' : 6.5, 'b+' : 7.0}
+        interval = {'C' : 1.0, 'C+': 1.5, 'D' : 2.0, 'D+':2.5, 'E' : 3.0, 'E+' : 3.5, 'F' : 3.5
+                 , 'F+' : 4.0, 'G' : 4.5, 'G+' : 5.0, 'A' : 5.5, 'A+': 6.0, 'B' : 6.5, 'B+' : 7.0}
 
         major_interval = [0, 1, 2, 2.5, 3.5, 4.5, 5.5]
         key_val = interval[scale[0]]
@@ -92,3 +94,18 @@ class CalculateService:
             key_num += 1
 
         return scale
+
+    # 다이어토닉 코드 생성 메소드
+    def get_diatonic_code(self, scale):
+
+        dia_code = []
+        for k_idx in range(len(scale)):
+            temp = []
+            code_idx = k_idx
+            while len(temp) < 4:
+                temp.append(scale[code_idx])
+                code_idx += 2
+                if code_idx > 6:
+                    code_idx -= 7
+            dia_code.append(temp)
+        return(dia_code)
