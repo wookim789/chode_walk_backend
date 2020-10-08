@@ -9,7 +9,8 @@ class CalculateService:
             key = self.check_key_validation(key)
             scale = self.calculate_interval(self.get_temp_scale(key))
             code = self.get_diatonic_code(scale)
-            result = {'scale' : scale, 'code' : code}
+            simple_code = self.get_simple_diatonic_code(code)
+            result = {'scale' : scale, 'code' : code, 'simple_code' : simple_code}
         except Exception as e:
             print(e)
             result = False
@@ -97,8 +98,8 @@ class CalculateService:
 
     # 다이어토닉 코드 생성 메소드
     def get_diatonic_code(self, scale):
-
         dia_code = []
+        
         for k_idx in range(len(scale)):
             temp = []
             code_idx = k_idx
@@ -108,4 +109,21 @@ class CalculateService:
                 if code_idx > 6:
                     code_idx -= 7
             dia_code.append(temp)
+
         return(dia_code)
+
+    # 5도 뺸 코드 생성 메소드
+    def get_simple_diatonic_code(self, dia_code):
+        simple_code = []
+
+        for code in dia_code:
+            temp = []
+            idx = 0
+            for scale in code:
+                if idx != 2:
+                    temp.append(scale)
+                idx += 1
+            
+            simple_code.append(temp)
+
+        return simple_code
