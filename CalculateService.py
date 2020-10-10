@@ -112,7 +112,7 @@ class CalculateService:
 
         return(dia_code)
 
-    # 5도 뺸 코드 생성 메소드
+    # 5도 뺸 코드 생성 메소드 s
     def get_simple_diatonic_code(self, dia_code):
         simple_code = []
 
