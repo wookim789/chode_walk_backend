@@ -2,13 +2,16 @@
 import flask
 from http import HTTPStatus
 import CalculateService
+from flask_cors import CORS
 
 app = flask.Flask (__name__)
 
+# cors
+CORS(app)
 
 @app.route('/')
 def hello_wold():
-    return 'hello world'
+    return 'hello wookim'
 
 @app.route('/getScale/<key>')
 def get_scale(key):

@@ -3,7 +3,7 @@
 import unittest
 import CalculateService
 
-class CalcuateServiceTest(unittest.TestCase):
+class UnitTest(unittest.TestCase):
     def setUp(self):
         self.service = CalculateService.CalculateService()
     
@@ -61,3 +61,5 @@ class CalcuateServiceTest(unittest.TestCase):
         self.assertRaises(Exception, lambda: self.service.get_scale('yasdas'))
 
 
+if __name__ == '__main__':
+    unittest.main()
