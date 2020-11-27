@@ -1,14 +1,8 @@
-FROM ubuntu:latest
-MAINTAINER wookim "wookim789@gmail.com"
-RUN apt-get update -y
-RUN apt-get install -y python3 python-pip python-dev build-essential
-COPY . /app
-WORKDIR /app
-# COPY requirements.txt /tmp
+FROM python:lastest
+RUN mkdir app
+WORKDIR /app/
+COPY requirements.txt /app
 RUN pip install -r requirements.txt
-ENTRYPOINT [ "python" ]
-CMD ['router.py']
-# COPY . /tmp/myapp
-# RUN pip install /tmp/myapp
-# EXPOSE 5000
+COPY . /app/myapp
+RUN pip install /app/myapp
 # CMD flask run wookim_api:app
