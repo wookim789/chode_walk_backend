@@ -5,5 +5,5 @@ WORKDIR /myapp/
 RUN pip install -r requirements.txt
 # COPY . /app/myapp
 # RUN pip install /app/myapp
-# CMD flask run wookim_api:app
+CMD flask run app.py
 
