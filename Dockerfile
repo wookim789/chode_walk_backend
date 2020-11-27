@@ -5,5 +5,6 @@ WORKDIR /myapp/
 RUN pip install -r requirements.txt
 # COPY . /app/myapp
 # RUN pip install /app/myapp
-CMD flask run app.py
+EXPOSE 5000
+CMD ["python", "app.py"]
 
