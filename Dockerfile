@@ -3,4 +3,5 @@ COPY requirements.txt /tmp
 RUN pip install -r requirements.txt
 COPY . /tml/myapp
 RUN pip install /tmp/myapp
+EXPOSE 5000
 # CMD flask run wookim_api:app
