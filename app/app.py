@@ -5,7 +5,7 @@ import CalculateService
 from flask_cors import CORS
 
 app = flask.Flask (__name__)
-app.run(host='0.0.0.0', port='5000')
+
 # cors
 CORS(app)
 
@@ -27,4 +27,4 @@ def get_scale(key):
     return response
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port='5000')
