@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-import flask
+from flask import Flask as fl
 from http import HTTPStatus
 import CalculateService
 from flask_cors import CORS
 
-app = flask.Flask (__name__)
+app = fl.Flask (__name__)
 
 # cors
 CORS(app)
@@ -21,9 +21,9 @@ def get_scale(key):
     result = cs.get_scale(key)
 
     if result != False:
-        response = flask.make_response(flask.jsonify(result), HTTPStatus.OK)
+        response = fl.make_response(fl.jsonify(result), HTTPStatus.OK)
     else:
-        response = flask.make_response(flask.jsonify(result), HTTPStatus.BAD_REQUEST)
+        response = fl.make_response(fl.jsonify(result), HTTPStatus.BAD_REQUEST)
     return response
 
 if __name__ == "__main__":
