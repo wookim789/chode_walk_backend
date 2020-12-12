@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-from flask import Flask as fl
-from http import HTTPStatus
-import CalculateService
+from flask.app import Flask
+from flask import jsonify, make_response
 from flask_cors import CORS
+from http import HTTPStatus
+import calculate_service as cls
 
-app = fl.Flask (__name__)
+app = Flask (__name__)
 
 # cors
 CORS(app)
@@ -15,16 +16,15 @@ def hello_wold():
 
 @app.route('/getScale/<key>')
 def get_scale(key):
-    cs = CalculateService.CalculateService()
+    cs = cls.CalculateService()
 
     response = None
     result = cs.get_scale(key)
 
     if result != False:
-        response = fl.make_response(fl.jsonify(result), HTTPStatus.OK)
+        response = make_response(jsonify(result), HTTPStatus.OK)
     else:
-        response = fl.make_response(fl.jsonify(result), HTTPStatus.BAD_REQUEST)
+        response = make_response(jsonify(result), HTTPStatus.BAD_REQUEST)
     return response
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='5000')
+
