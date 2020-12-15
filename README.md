@@ -16,7 +16,11 @@
 10. gunicorn
 
 
+
 ## CI/CD 프로세스
 
 ![CI/CD 프로세스](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fs8ZCR%2FbtqP6okpAXf%2F2mvEH8DcEqKpwLInXZePWK%2Fimg.png)
 
+
+## 프로젝트 구조
+![MSA 프로젝트 구조](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FczoCiX%2FbtqQjmZoziE%2FfXCeYIBxhCtAplOpBXUuU0%2Fimg.png)
