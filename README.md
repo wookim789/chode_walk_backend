@@ -7,6 +7,14 @@
 1. python
 2. flask
 3. unittest
+4. github action
+5. AWS S3
+6. AWS CodePipeline
+7. AWS CodeDeploy
+8. Docker
+9. Docker Compse
+10. gunicorn
+
 
 ## CI/CD 프로세스
 
